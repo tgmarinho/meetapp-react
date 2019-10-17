@@ -1,10 +1,13 @@
 import React from "react";
+import { Router } from "react-router-dom";
+import Routes from "./routes";
+import history from "./services/history";
 
 function App() {
   return (
-    <div>
-      <h1>Hi Meetapp</h1>
-    </div>
+    <Router history={history}>
+      <Routes />
+    </Router>
   );
 }
 
