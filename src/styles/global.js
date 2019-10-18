@@ -16,7 +16,7 @@ html, body, #root {
     -webkit-font-smoothing: antialiased;
   }
   body, input, button {
-    font: 14px 'Helvetica', sans-serif;
+    font-family: Helvetica, sans-serif;
   }
   a {
     text-decoration: none;
