@@ -14,8 +14,7 @@ export default function Dashboard() {
 
       const data = response.data.map(meetup => {
         return {
-          id: meetup.id,
-          title: meetup.title,
+          ...meetup,
           date: format(parseISO(meetup.date), "d 'de' MMMM', às ' h'h'", {
             locale: pt,
           }),
@@ -39,10 +38,15 @@ export default function Dashboard() {
 
       <ul>
         {meetups.map(meetup => (
-          <Meetup key={meetup.id}>
-            <p>{meetup.title}</p>
-            <span>{meetup.date}</span>
-          </Meetup>
+          <Link
+            to={{ pathname: `details/${meetup.id}`, state: { meetup } }}
+            key={meetup.id}
+          >
+            <Meetup>
+              <p>{meetup.title}</p>
+              <span>{meetup.date}</span>
+            </Meetup>
+          </Link>
         ))}
       </ul>
     </Container>
