@@ -35,13 +35,13 @@ export default function ImageInput() {
 
   return (
     <Container>
-      <label htmlFor="bannerss">
+      <label htmlFor="banner">
         <img src={preview} alt="" />
         {!preview && <p>Selecionar Imagem</p>}
 
         <input
           type="file"
-          id="bannerss"
+          id="banner"
           accept="image/*"
           data-file={file}
           onChange={handleChange}

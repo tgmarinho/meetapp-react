@@ -15,6 +15,7 @@ html, body, #root {
   height: 100%;
   body {
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale !important;
   }
   body, input, button {
     font-family: Helvetica, sans-serif;

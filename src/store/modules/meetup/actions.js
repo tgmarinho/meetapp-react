@@ -17,3 +17,10 @@ export function createMeetupFailure() {
     type: '@meetup/CREATE_MEETUP_FAILURE',
   };
 }
+
+export function deleteMeetupRequest(id) {
+  return {
+    type: '@meetup/DELETE_MEETUP_REQUEST',
+    payload: { id },
+  };
+}

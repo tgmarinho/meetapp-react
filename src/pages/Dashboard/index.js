@@ -20,7 +20,7 @@ export default function Dashboard() {
           }),
         };
       });
-
+      console.tron.log('meetups: ', data);
       setMeetups(data);
     }
 
@@ -37,17 +37,25 @@ export default function Dashboard() {
       </header>
 
       <ul>
-        {meetups.map(meetup => (
-          <Link
-            to={{ pathname: `details/${meetup.id}`, state: { meetup } }}
-            key={meetup.id}
-          >
-            <Meetup>
-              <p>{meetup.title}</p>
-              <span>{meetup.date}</span>
-            </Meetup>
-          </Link>
-        ))}
+        {meetups.length > 0 ? (
+          meetups.map(meetup => (
+            <Link
+              to={{ pathname: `details/${meetup.id}`, state: { meetup } }}
+              key={meetup.id}
+            >
+              <Meetup>
+                <p>{meetup.title}</p>
+                <span>{meetup.date}</span>
+              </Meetup>
+            </Link>
+          ))
+        ) : (
+          <Meetup>
+            <p>
+              <em>Nenhum meetup cadastrado.</em>
+            </p>
+          </Meetup>
+        )}
       </ul>
     </Container>
   );

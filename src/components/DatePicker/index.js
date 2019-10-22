@@ -1,0 +1,50 @@
+import React, { useRef, useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import pt from 'date-fns/locale/pt';
+import { useField } from '@rocketseat/unform';
+import PropTypes from 'prop-types';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
+import { Container } from './styles';
+
+export default function CustomDatePicker({ name, placeholder }) {
+  const ref = useRef();
+  const { fieldName, registerField, defaultValue, error } = useField(name);
+  const [selected, setSelected] = useState(defaultValue);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: ref.current,
+      path: 'props.selected',
+      clearValue: pickerRef => {
+        pickerRef.clear();
+      },
+    });
+  }, [ref.current]); // eslint-disable-line
+
+  return (
+    <Container>
+      <DatePicker
+        locale={pt}
+        name={fieldName}
+        selected={selected}
+        onChange={date => setSelected(date)}
+        ref={ref}
+        isClearable
+        withPortal
+        showTimeSelect
+        minDate={new Date()}
+        dateFormat="dd 'de' MMMM 'de' yyyy 'às' HH:mm"
+        placeholderText={placeholder}
+      />
+      {error && <span>{error}</span>}
+    </Container>
+  );
+}
+
+DatePicker.propTypes = {
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+};

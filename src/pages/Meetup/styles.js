@@ -37,13 +37,18 @@ export const Container = styled.div`
     }
 
     span {
+      margin-top: 5px;
+      margin-bottom: 5px;
       color: #fb6f91;
       align-self: flex-start;
       margin: 0 0 10px;
       font-weight: bold;
     }
 
-    button {
+    > button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       align-self: flex-end;
       width: 150px;
       margin: 10px 0 0;
@@ -57,6 +62,10 @@ export const Container = styled.div`
       transition: background 0.2s;
       &:hover {
         background: ${darken(0.08, '#d44059')};
+      }
+
+      svg {
+        margin-right: 4px;
       }
     }
   }

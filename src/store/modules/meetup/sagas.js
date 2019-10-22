@@ -1,5 +1,6 @@
 import { takeLatest, call, put, all, select } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
+import { parseISO } from 'date-fns';
 import api from '~/services/api';
 import history from '~/services/history';
 import {
@@ -10,28 +11,36 @@ import {
 
 export function* createMeetup({ payload }) {
   try {
-    const user = yield select(state => state.user.profile.id);
-    console.tron.log('entrei no saga', { ...payload.data, date: new Date() });
-    // const dateFormatted = parse;
-
-    // const { title, description,  }
-
-    const response = yield call(api.post, '/meetups', {
+    // const date = parseISO(payload.data.date);
+    // console.tron.log(date);
+    yield call(api.post, 'meetups', {
       ...payload.data,
-      date: new Date(),
+      // date,
     });
 
-    console.tron.log('DEU CERTO', response.data);
-
-    // yield put(createMeetupSuccess(token, user));
     toast.success('Meetup cadastrado com sucesso!');
 
-    // history.push('/dashboard');
+    history.push('/meetups');
   } catch (err) {
-    console.tron.log(err);
-    toast.error('Ops! ocorreu um erro ao cadastrar  o meetup');
+    console.tron.log('ERRO ao CRIAR', err);
+    toast.error('Ops! ocorreu um erro ao cadastrar o meetup');
     yield put(createMeetupFailure());
   }
 }
 
-export default all([takeLatest('@meetup/CREATE_MEETUP_REQUEST', createMeetup)]);
+export function* cancelMeetup({ payload }) {
+  try {
+    const response = yield call(api.delete, `/meetups/${payload.id}`);
+    console.tron.log('res', response);
+    toast.success('Meetup cancelado com sucesso!');
+    history.push('/meetups');
+  } catch (error) {
+    console.tron.log('ERROR', error);
+    toast.error('Ops! ocorreu um erro ao cancelar o meetup');
+  }
+}
+
+export default all([
+  takeLatest('@meetup/CREATE_MEETUP_REQUEST', createMeetup),
+  takeLatest('@meetup/DELETE_MEETUP_REQUEST', cancelMeetup),
+]);
