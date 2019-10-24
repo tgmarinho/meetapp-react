@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useField } from '@rocketseat/unform';
+import { MdPhotoCamera } from 'react-icons/md';
 import api from '~/services/api';
 import { Container } from './styles';
 
@@ -19,7 +20,7 @@ export default function ImageInput() {
         path: 'dataset.file',
       });
     }
-  }, [ref.current]); // eslint-disable-line
+  }, [ref, ref.current]); // eslint-disable-line
 
   async function handleChange(e) {
     const data = new FormData();
@@ -28,7 +29,6 @@ export default function ImageInput() {
     data.append('type', 'banner');
     const response = await api.post('files', data);
     const { id, url } = response.data;
-    console.tron.log(id);
     setFile(id);
     setPreview(url);
   }
@@ -36,8 +36,14 @@ export default function ImageInput() {
   return (
     <Container>
       <label htmlFor="banner">
-        <img src={preview} alt="" />
-        {!preview && <p>Selecionar Imagem</p>}
+        {preview ? (
+          <img src={preview} alt="Banner" />
+        ) : (
+          <div>
+            <MdPhotoCamera size={50} />
+            Selecionar Imagem
+          </div>
+        )}
 
         <input
           type="file"

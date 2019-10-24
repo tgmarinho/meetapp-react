@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 940px;
-  margin: 50px auto;
+  margin: 0 auto;
+  margin-top: 50px;
 
   header {
     display: flex;
@@ -19,6 +20,9 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: ${props => (props.custom ? '#4DBAF9' : '#d44059')};
   border-radius: 4px;
   width: 160px;
@@ -31,6 +35,10 @@ export const Button = styled.button`
   font-size: 16px;
   line-height: 18px;
   color: #ffffff;
+
+  svg {
+    margin-right: 8px;
+  }
 `;
 
 export const Content = styled.div`
@@ -49,10 +57,16 @@ export const Content = styled.div`
 
   section {
     margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
     span {
       color: #999;
+      font-weight: normal;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      svg {
+        margin-left: 15px;
+      }
     }
   }
 `;

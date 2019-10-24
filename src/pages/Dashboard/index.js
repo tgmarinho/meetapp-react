@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import pt from 'date-fns/locale/pt';
 import { format, parseISO } from 'date-fns';
+import { MdAddCircleOutline, MdKeyboardArrowRight } from 'react-icons/md';
 import api from '~/services/api';
 import { Container, Meetup } from './styles';
+import history from '~/services/history';
 
 export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
 
   useEffect(() => {
     async function loadMeetups() {
-      const response = await api.get('meetups');
+      const response = await api.get('dashboard');
 
       const data = response.data.map(meetup => {
         return {
@@ -20,20 +22,24 @@ export default function Dashboard() {
           }),
         };
       });
-      console.tron.log('meetups: ', data);
       setMeetups(data);
     }
 
     loadMeetups();
   }, []);
 
+  function handleAddNew() {
+    history.push('/meetup/new');
+  }
+
   return (
     <Container>
       <header>
         <h1>Meus Meetups</h1>
-        <Link to="/meetup/new">
-          <button type="button">Novo meetup</button>
-        </Link>
+        <button type="button" onClick={handleAddNew}>
+          <MdAddCircleOutline size={20} />
+          Novo meetup
+        </button>
       </header>
 
       <ul>
@@ -45,7 +51,9 @@ export default function Dashboard() {
             >
               <Meetup>
                 <p>{meetup.title}</p>
-                <span>{meetup.date}</span>
+                <span>
+                  {meetup.date} <MdKeyboardArrowRight size={24} color="#fff" />
+                </span>
               </Meetup>
             </Link>
           ))

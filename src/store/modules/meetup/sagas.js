@@ -11,18 +11,15 @@ import {
 
 export function* createMeetup({ payload }) {
   try {
-    // const date = parseISO(payload.data.date);
-    // console.tron.log(date);
+    console.tron.log('payload: ', payload.data);
     yield call(api.post, 'meetups', {
       ...payload.data,
-      // date,
     });
 
     toast.success('Meetup cadastrado com sucesso!');
 
-    history.push('/meetups');
+    history.push('/dashboard');
   } catch (err) {
-    console.tron.log('ERRO ao CRIAR', err);
     toast.error('Ops! ocorreu um erro ao cadastrar o meetup');
     yield put(createMeetupFailure());
   }
@@ -30,17 +27,34 @@ export function* createMeetup({ payload }) {
 
 export function* cancelMeetup({ payload }) {
   try {
-    const response = yield call(api.delete, `/meetups/${payload.id}`);
-    console.tron.log('res', response);
+    yield call(api.delete, `/meetups/${payload.id}`);
     toast.success('Meetup cancelado com sucesso!');
-    history.push('/meetups');
+    history.push('/dashboard');
   } catch (error) {
-    console.tron.log('ERROR', error);
     toast.error('Ops! ocorreu um erro ao cancelar o meetup');
+  }
+}
+
+export function* updateMeetup({ payload }) {
+  console.tron.log('payload: ', payload);
+
+  try {
+    yield call(api.put, `meetups/${payload.id}`, {
+      ...payload.data,
+    });
+
+    toast.success('Meetup alterado com sucesso!');
+
+    history.push('/dashboard');
+  } catch (err) {
+    console.tron.log(err);
+    toast.error('Ops! ocorreu um erro ao alterar o meetup');
+    // yield put(createMeetupFailure());
   }
 }
 
 export default all([
   takeLatest('@meetup/CREATE_MEETUP_REQUEST', createMeetup),
   takeLatest('@meetup/DELETE_MEETUP_REQUEST', cancelMeetup),
+  takeLatest('@meetup/UPDATE_MEETUP_REQUEST', updateMeetup),
 ]);

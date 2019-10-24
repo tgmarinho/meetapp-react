@@ -6,17 +6,19 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 90px;
-  max-width: 900px;
+  height: 92px;
+
+  max-width: 940px;
   margin: 0 auto;
+  padding: 20px 0;
   display: flex;
-  position: relative;
   justify-content: space-between;
   align-items: center;
   nav {
     display: flex;
     align-items: center;
     img {
+      height: 35px;
       margin-right: 20px;
       padding-right: 20px;
     }

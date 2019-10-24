@@ -3,8 +3,10 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
   width: 940px;
-  margin: 50px auto;
+  margin: 0 auto;
+
   form {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
 
@@ -13,7 +15,6 @@ export const Container = styled.div`
       background: rgba(0, 0, 0, 0.1);
       border: 0;
       border-radius: 4px;
-      height: 55px;
       padding: 15px;
       color: #fff;
       margin: 0 0 10px;

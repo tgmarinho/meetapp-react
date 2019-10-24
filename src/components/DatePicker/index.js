@@ -10,25 +10,22 @@ import { Container } from './styles';
 
 export default function CustomDatePicker({ name, placeholder }) {
   const ref = useRef();
-  const { fieldName, registerField, defaultValue, error } = useField(name);
+  const { defaultValue, registerField } = useField('date');
   const [selected, setSelected] = useState(defaultValue);
 
   useEffect(() => {
     registerField({
-      name: fieldName,
+      name: 'date',
       ref: ref.current,
       path: 'props.selected',
-      clearValue: pickerRef => {
-        pickerRef.clear();
-      },
     });
   }, [ref.current]); // eslint-disable-line
 
   return (
     <Container>
       <DatePicker
+        name="date"
         locale={pt}
-        name={fieldName}
         selected={selected}
         onChange={date => setSelected(date)}
         ref={ref}
@@ -39,7 +36,7 @@ export default function CustomDatePicker({ name, placeholder }) {
         dateFormat="dd 'de' MMMM 'de' yyyy 'às' HH:mm"
         placeholderText={placeholder}
       />
-      {error && <span>{error}</span>}
+      {/* {error && <span>{error}</span>} */}
     </Container>
   );
 }

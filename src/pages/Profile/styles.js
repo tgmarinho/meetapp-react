@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  max-width: 600px;
-  margin: 50px auto;
+  max-width: 940px;
+  margin: 0 auto;
   form {
     display: flex;
     flex-direction: column;
@@ -41,6 +41,7 @@ export const Container = styled.div`
       button {
         height: 40px;
         width: 150px;
+        display: flex;
         justify-content: center;
         align-items: center;
         background: #d44059;
@@ -52,6 +53,10 @@ export const Container = styled.div`
         transition: background 0.2s;
         &:hover {
           background: ${darken(0.08, '#d44059')};
+        }
+
+        svg {
+          margin-right: 8px;
         }
       }
     }

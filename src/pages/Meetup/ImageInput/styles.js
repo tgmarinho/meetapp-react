@@ -2,30 +2,42 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   align-self: center;
+  width: 100%;
+  margin-bottom: 20px;
 
   label {
     cursor: pointer;
     &:hover {
       opacity: 0.7;
     }
-    img {
-      display: flex;
-      width: 940px;
-      height: 300px;
-      border-radius: 4px;
 
-      background-color: rgba(0, 0, 0, 0.3);
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      font-size: 18px;
+      color: #999;
+      height: 15rem;
+      font-weight: bold;
+      border-radius: 4px;
+      opacity: 0.4;
+
+      svg {
+        margin-bottom: 8px;
+      }
     }
+
+    img {
+      min-width: 940px;
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 4px;
+    }
+
     input {
       display: none;
     }
-  }
-
-  p {
-    position: relative;
-    top: -140px;
-    left: 380px;
-    color: #999;
-    font-size: 20px;
   }
 `;

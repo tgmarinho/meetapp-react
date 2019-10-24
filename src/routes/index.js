@@ -14,11 +14,11 @@ export default function Routes() {
       <Route path="/" exact component={SignIn} />
       <Route path="/register" component={SignUp} />
 
-      <Route path="/meetups" component={Dashboard} isPrivate />
+      <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
       <Route path="/details/:id" component={Details} isPrivate />
-      {/* <Route path="/meetup/:id" component={Meetups} isPrivate /> */}
       <Route path="/meetup/new" component={Meetup} isPrivate />
+      <Route path="/meetup/:id" component={Meetup} isPrivate />
     </Switch>
   );
 }

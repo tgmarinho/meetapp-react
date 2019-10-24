@@ -13,6 +13,9 @@ export const Container = styled.div`
     }
 
     button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: #d44059;
       border-radius: 4px;
       width: 160px;
@@ -25,6 +28,10 @@ export const Container = styled.div`
       font-size: 16px;
       line-height: 18px;
       color: #ffffff;
+
+      svg {
+        margin-right: 4px;
+      }
     }
   }
 
@@ -49,14 +56,19 @@ export const Meetup = styled.li`
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
-    color: #ffffff;
+    color: #fff;
   }
 
   span {
-    color: #fff;
+    display: flex;
+    align-items: center;
+    color: #999;
     font-weight: normal;
     font-size: 16px;
     line-height: 18px;
-    opacity: 0.6;
+
+    svg {
+      margin-left: 12px;
+    }
   }
 `;

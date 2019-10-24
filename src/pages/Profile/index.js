@@ -2,7 +2,9 @@ import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { MdAddCircleOutline } from 'react-icons/md';
 import { Container } from './styles';
+
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
 const schema = Yup.object().shape({
@@ -10,7 +12,20 @@ const schema = Yup.object().shape({
   email: Yup.string()
     .email('Insira um email válido')
     .required('O Email é obrigatório'),
-  password: Yup.string().required('A Senha é obrigatória'),
+  oldPassword: Yup.string()
+    .min(6, 'Sua senha deve ter no mínimo 6 caracteres')
+    .when('password', (password, field) =>
+      password ? field.required('Senha atual é obrigatória.') : field
+    ),
+  password: Yup.string().min(6, 'Sua senha deve ter no mínimo 6 caracteres'),
+  confirmPassword: Yup.string()
+    .oneOf(
+      [Yup.ref('password')],
+      'Sua nova senha não combina com a senha informada'
+    )
+    .when('password', (password, field) =>
+      password ? field.required('Confirmação de senha é obrigatório') : field
+    ),
 });
 
 export default function Profile() {
@@ -39,7 +54,10 @@ export default function Profile() {
           placeholder="Confirmação de senha"
         />
         <div>
-          <button type="submit">Salvar perfil</button>
+          <button type="submit">
+            <MdAddCircleOutline size={20} />
+            Salvar perfil
+          </button>
         </div>
       </Form>
     </Container>

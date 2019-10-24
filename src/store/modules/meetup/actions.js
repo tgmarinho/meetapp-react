@@ -24,3 +24,10 @@ export function deleteMeetupRequest(id) {
     payload: { id },
   };
 }
+
+export function updateMeetupRequest(data, id) {
+  return {
+    type: '@meetup/UPDATE_MEETUP_REQUEST',
+    payload: { data, id },
+  };
+}
