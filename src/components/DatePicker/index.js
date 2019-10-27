@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import { Container } from './styles';
 
-export default function CustomDatePicker({ name, placeholder }) {
+export default function CustomDatePicker({ placeholder }) {
   const ref = useRef();
   const { defaultValue, registerField } = useField('date');
   const [selected, setSelected] = useState(defaultValue);
@@ -41,6 +41,5 @@ export default function CustomDatePicker({ name, placeholder }) {
 }
 
 DatePicker.propTypes = {
-  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
 };
