@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   .react-datepicker {
-    /* font-family: 'Roboto', sans-serif; */
   }
   .react-datepicker__input-container {
     width: 100%;

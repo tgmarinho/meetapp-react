@@ -1,14 +1,13 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { MdEdit, MdDeleteForever, MdEvent, MdLocationOn } from 'react-icons/md';
-import { Link } from 'react-router-dom';
-import teste from '~/assets/teste.png';
+import PropTypes from 'prop-types';
 import { Container, Content, Button } from './styles';
 import { deleteMeetupRequest } from '~/store/modules/meetup/actions';
 import history from '~/services/history';
 
-export default function Details(props) {
-  const { meetup } = props.location.state;
+export default function Details({ location }) {
+  const { meetup } = location.state;
   const dispatch = useDispatch();
 
   function handleCancel(id) {
@@ -51,3 +50,20 @@ export default function Details(props) {
     </Container>
   );
 }
+
+Details.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      meetup: PropTypes.shape({
+        title: PropTypes.string,
+        id: PropTypes.number,
+        banner: PropTypes.shape({
+          url: PropTypes.string,
+        }),
+        localization: PropTypes.string,
+        date: PropTypes.string,
+        description: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
+};

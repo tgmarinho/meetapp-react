@@ -36,7 +36,6 @@ export default function CustomDatePicker({ name, placeholder }) {
         dateFormat="dd 'de' MMMM 'de' yyyy 'às' HH:mm"
         placeholderText={placeholder}
       />
-      {/* {error && <span>{error}</span>} */}
     </Container>
   );
 }

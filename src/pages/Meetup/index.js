@@ -52,12 +52,6 @@ export default function Meetup({ match }) {
       } catch (err) {
         setLoading(false);
 
-        const { data } = err.response || false;
-
-        console.tron.log(
-          data && data.error ? data.error : 'Meetup não foi encontrado.'
-        );
-
         history.push('/');
       }
     }
