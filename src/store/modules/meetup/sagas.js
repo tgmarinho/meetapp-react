@@ -2,7 +2,6 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import api from '~/services/api';
 import history from '~/services/history';
-import { createMeetupFailure } from './actions';
 
 export function* createMeetup({ payload }) {
   try {
@@ -14,10 +13,10 @@ export function* createMeetup({ payload }) {
 
     history.push('/dashboard');
   } catch (err) {
+    console.tron.log('VENDO O ERRO', err.response.error);
     toast.error(
-      `Ops! ocorreu um erro ao cadastrar o meetup. ${err.response.error}`
+      `Ops! ocorreu um erro ao cadastrar o meetup. ${err.response.data.error}`
     );
-    yield put(createMeetupFailure());
   }
 }
 
@@ -27,8 +26,10 @@ export function* cancelMeetup({ payload }) {
     toast.success('Meetup cancelado com sucesso!');
     history.push('/dashboard');
   } catch (error) {
+    console.tron.log(error.response.data);
     toast.error(
-      `Ops! ocorreu um erro ao cancelar o meetup. ${error.response.error}`
+      `Ops! ocorreu um erro ao cancelar o meetup. ${error.response.data &&
+        error.response.data.error}`
     );
   }
 }
@@ -44,7 +45,7 @@ export function* updateMeetup({ payload }) {
     history.push('/dashboard');
   } catch (err) {
     toast.error(
-      `Ops! ocorreu um erro ao alterar o meetup. ${err.response.error}`
+      `Ops! ocorreu um erro ao alterar o meetup. ${err.response.data.error}`
     );
   }
 }

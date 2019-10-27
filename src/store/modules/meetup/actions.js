@@ -12,12 +12,6 @@ export function createMeetupSuccess(data) {
   };
 }
 
-export function createMeetupFailure() {
-  return {
-    type: '@meetup/CREATE_MEETUP_FAILURE',
-  };
-}
-
 export function deleteMeetupRequest(id) {
   return {
     type: '@meetup/DELETE_MEETUP_REQUEST',
