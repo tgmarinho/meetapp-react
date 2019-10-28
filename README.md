@@ -1,69 +1,89 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Meetapp Frontend
 
-## Available Scripts
+In this challenge was built the front-end with ReactJS of Meetapp that use the API developed in this [repository](https://github.com/tgmarinho/meetapp-api).
 
-In the project directory, you can run:
+Created an application from scratch using create-react-app and configured linting tools, [Reactotron](https://github.com/infinitered/reactotron), [Redux](https://www.github.com/reduxjs/redux) and [Redux Saga](https://github.com/redux-saga/redux-saga).
 
-### `yarn start`
+This application is used by meetup organizers and do not have subscribing features.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The project layout is attached to assets-challenge folder in this repository.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Pages
 
-### `yarn test`
+### SignIn
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [x] User must be able to authenticate using email and password.
+![](https://raw.githubusercontent.com/tgmarinho/meetapp/master/screenshots/sign-web.png)
 
-### `yarn build`
+### SignUp
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] User must be able to sign up with name, email and password.
+![](https://raw.githubusercontent.com/tgmarinho/meetapp/master/screenshots/signup-web.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Dashboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [x] User should be able to list the meetups they organize and click to see details of a meetup.
+- [x] From this page the user can navigate to meetup creation page.
+![](https://raw.githubusercontent.com/tgmarinho/meetapp/master/screenshots/listMeetup-werb.png)
 
-### `yarn eject`
+### Details
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [x] User must be able to view details of a previously registered meetup.
+- [x] In this page the user can edit the data of a meetup or even cancel a meetup.
+![](https://raw.githubusercontent.com/tgmarinho/meetapp/master/screenshots/details-web.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Create or Edit
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [x] User must be able to create or edit information about meetups he organizes.
+- [x] Display the meetup banner image preview when the user selects an image.
+- [x] Use validation in the fields.
+![](https://raw.githubusercontent.com/tgmarinho/meetapp/master/screenshots/edit-web.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Profile
 
-## Learn More
+- [x] User must be able to edit your personal data.
+- [x] Use validation in the fields.
+![](https://raw.githubusercontent.com/tgmarinho/meetapp/master/screenshots/profile-web.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## How to Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+The project can be built with npm or yarn, so choose one of the approach bellow in case you don't have any installed on your system.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* **Npm** is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer. [Download Node.js](https://nodejs.org/en/download/)
 
-### Analyzing the Bundle Size
+* **Yarn** is a package manager built by Facebook Team and seems to be faster than npm in general.  [Download Yarn](https://yarnpkg.com/en/docs/install)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Installing
 
-### Making a Progressive Web App
+To download the project follow the instructions bellow:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Download, install dependencies and start the API server
 
-### Advanced Configuration
+```
+1. git clone https://github.com/tgmarinho/meetapp-api.git
+2. cd meetapp-api
+3. yarn install
+4. yarn run dev
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Then download, install dependencies and run the project:
 
-### Deployment
+```
+5. git clone https://github.com/tgmarinho/meetapp-web.git
+6. cd meetapp-web
+7. yarn install
+8. yarn start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# meetapp-react
+## Authors
+
+| ![Thiago Marinho](https://avatars2.githubusercontent.com/u/380327?s=150&v=3)|
+|:---------------------:|
+|  [Thiago Marinho](https://github.com/tgmarinho/)   |
+
+
+Thanks!
