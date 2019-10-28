@@ -1,3 +1,5 @@
+![Thiago Marinho](https://pbs.twimg.com/profile_banners/41742474/1490016588/1500x500)
+
 # Meetapp Frontend
 
 In this challenge was built the front-end with ReactJS of Meetapp that use the API developed in this [repository](https://github.com/tgmarinho/meetapp-api).
