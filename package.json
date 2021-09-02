@@ -7,7 +7,7 @@
     "axios": "^0.19.0",
     "date-fns": "^2.5.1",
     "history": "^4.10.1",
-    "immer": "^4.0.1",
+    "immer": "^9.0.6",
     "input-moment": "^0.4.0",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
